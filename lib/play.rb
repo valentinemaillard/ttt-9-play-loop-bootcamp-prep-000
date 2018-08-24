@@ -35,3 +35,28 @@ def turn(board)
   end
 end
 
+# Define your play method below
+def play(board)
+  counter = 0 
+  until counter == 9 
+  puts turn(board)
+  counter += 1 
+  end
+end
+
+def turn_count(board)
+  # board.count{|token| token == "X" || token == "O"}
+
+  turns = 0
+  board.each do |token|
+    if token == "X" || token == "O"
+      turns += 1
+    end
+  end
+  turns
+
+end
+
+def current_player(board)
+  turn_count(board) % 2 == 0 ? "X" : "O"
+end
